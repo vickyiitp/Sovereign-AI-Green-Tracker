@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./server
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./server:/app
+    environment:
+      - ENVIRONMENT=development
+    networks:
+      - sovereign_net
+
+networks:
+  sovereign_net:
+    driver: bridge
